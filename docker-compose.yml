@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    image: orbit:latest
+    ports:
+      - "8000:8000"
+    environment:
+      SITE_NAME: Orbit
+      ACCENT_COLOR: "#7cf3ff"
+      APP_VERSION: "1.0.0"
+    restart: unless-stopped

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site_name }} · shipped in a container</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>:root { --accent: {{ accent }}; }</style>
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+
+  <main>
+    <header>
+      <p class="eyebrow">Python · Flask · Docker</p>
+      <h1>{{ site_name }}</h1>
+      <p class="lede">A tiny solar system, served from a container.</p>
+    </header>
+
+    <section class="system" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="ring r1"><span class="planet p1"></span></div>
+      <div class="ring r2"><span class="planet p2"></span></div>
+      <div class="ring r3"><span class="planet p3"><i class="moon"></i></span></div>
+      <div class="ring r4"><span class="planet p4"></span></div>
+    </section>
+
+    <section class="cards">
+      <article class="card" id="fact-card">
+        <h2>Space fact</h2>
+        <p id="fact">Loading…</p>
+        <button id="new-fact" type="button">Another one</button>
+      </article>
+
+      <article class="card">
+        <h2>Mission control</h2>
+        <dl id="info">
+          <dt>Container</dt><dd data-k="hostname">…</dd>
+          <dt>Python</dt><dd data-k="python">…</dd>
+          <dt>Uptime</dt><dd data-k="uptime_seconds">…</dd>
+          <dt>Version</dt><dd data-k="app_version">…</dd>
+        </dl>
+        <p class="hint">Refreshes every 5 s. Scale up and watch the container name change.</p>
+      </article>
+    </section>
+
+    <footer>Health check at <code>/healthz</code> · JSON at <code>/api/info</code></footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
